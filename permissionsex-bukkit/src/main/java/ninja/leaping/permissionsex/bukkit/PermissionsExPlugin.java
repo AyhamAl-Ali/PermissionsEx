@@ -374,7 +374,9 @@ public class PermissionsExPlugin extends JavaPlugin implements Listener {
             if (cmd != null) {
                 PEXBukkitCommand bukkitCommand = new PEXBukkitCommand(command, PermissionsExPlugin.this);
                 cmd.setExecutor(bukkitCommand);
-                cmd.setTabCompleter(bukkitCommand);
+                if (!command.getAliases().get(0).equalsIgnoreCase("promote")) {
+                    cmd.setTabCompleter(bukkitCommand);
+                }
             }
         }
 
